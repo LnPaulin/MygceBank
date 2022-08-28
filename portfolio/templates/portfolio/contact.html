@@ -1,0 +1,82 @@
+{% extends 'portfolio/base.html' %}
+{%load static%}
+{%block title%}
+Contact |
+{%endblock%}
+{%block menu %}
+        <li class="tm-nav-item "><a href="{% url 'home' %}" class="tm-nav-link">
+            <i class="fas fa-home"></i>
+            Home
+        </a></li>
+
+        <li class="tm-nav-item"><a href="{%url 'blog:all_blogs' %}" class="tm-nav-link">
+            <i class="fas fa-users"></i>
+            Blog
+        </a></li>
+        
+        <li class="tm-nav-item"><a href="{% url 'about' %}" class="tm-nav-link">
+            <i class="fas fa-pen"></i>
+            About
+        </a></li>
+
+        <li class="tm-nav-item active"><a href="{% url 'contact' %}" class="tm-nav-link">
+            <i class="far fa-comments"></i>
+            Contact
+        </a></li>
+
+{%endblock%}
+
+{%block content %}
+
+    <center>
+        <img src="{% static 'img/contact.png'%}" class="fpc">
+    </center>
+    <div class="row tm-row tm-mb-120">
+        <div class="col-12">
+            <h2 class="tm-color-primary tm-post-title tm-mb-60">Contact Us</h2>
+        </div>
+        <div class="col-lg-7 tm-contact-left">
+            <div class="pnp">
+                <form method="POST" action="contact" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>    
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-5 tm-contact-right">
+            <hr class="tm-hr-primary">
+            <address class="mb-4 tm-color-gray">
+                Feel free to leave me a message using the Contact Form.
+            </address>
+            <span class="d-block">
+                Tel:
+                <a target="_blank" href="tel:060-070-0980" class="tm-color-gray">+237 690 31 90 39</a>
+            </span>
+            <span class="mb-4 d-block">
+                Email:
+                <a target="_blank" href="mailto:fonkwapaulin@gmail.com" class="tm-color-gray">fonkwapaulin@gmail.com</a>
+            </span>
+            <p class="mb-5 tm-line-height-short">
+                Feedback, Business, or any Related service is highly welcomed.
+            </p>
+            <hr class="tm-hr-primary">
+            <ul class="tm-social-links">
+                <a target="_blank" rel="nofollow" href="https://t.me/lnpaulin" class="tm-social-link">
+                    <i class="fab fa-telegram tm-social-icon"></i>
+                </a>
+                <a target="_blank" href="https://wa.me/+237690319039?text=Hello%20i'll%20like%20you%20to%20help%20me..." class="tm-social-link">
+                    <i class="fab fa-whatsapp tm-social-icon"></i>
+                </a>
+                <a target="_blank" href="https://linkedin.com/in/tchio-fonkwa-paulin-4b1b221a6" class="tm-social-link">
+                    <i class="fab fa-linkedin tm-social-icon"></i>
+                </a>
+                <a target="_blank" href="https://youtube.com/channel/UCafI9Ec0QbhnPj-JwAy4aiA" class="tm-social-link">
+                        <i class="fab fa-youtube tm-social-icon"></i>
+                </a>
+            </ul>
+        </div>
+    </div>      
+
+
+{% endblock %}

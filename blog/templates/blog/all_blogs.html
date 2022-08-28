@@ -1,0 +1,126 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{%block title%}
+    Blog |
+{%endblock%}
+{%block menu %}
+    <li class="tm-nav-item "><a href="{% url 'home'%}" class="tm-nav-link">
+        <i class="fas fa-home"></i>
+        Home
+    </a></li>
+
+    <li class="tm-nav-item active"><a href="{%url 'blog:all_blogs'%}" class="tm-nav-link">
+        <i class="fas fa-users"></i>
+        Blog
+    </a></li>
+
+    <li class="tm-nav-item"><a href="{% url 'about' %}" class="tm-nav-link">
+        <i class="fas fa-pen"></i>
+        About
+    </a></li>
+
+    <li class="tm-nav-item "><a href="{%url 'contact'%}" class="tm-nav-link">
+        <i class="fas fa-comments"></i>
+        Contact
+    </a></li>
+
+{%endblock%}
+{% block search %}
+<div class="col-12">
+    <form action="{% url 'blog:search' %}" method="GET" class="form-inline tm-mb-80 tm-search-form">
+        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+        <button class="tm-search-button" type="submit">
+            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{%block content %}
+    <center>
+        <b><p class="ex2">CATEGORIES</p></b>
+        <a class="mb-2 tm-btn tm-btn-primary tm-prev-next" href="{% url 'blog:all_blogs' %}">All</a>
+        {% for category in categories %}
+            <a class="mb-2 tm-btn tm-btn-primary tm-prev-next" href="{% url 'blog:all_blogs' %}?category={{category.name}}">{{category.name}}</a>
+        {% endfor %}
+    </center>
+    <br><br>
+    <div class="row media box">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="col-lg-4 col-md-6">
+                    <article class="col-12 col-md-6 tm-post">
+                        <hr class="tm-hr-primary">
+                        <a href="{% url 'blog:detail' blog.id %}" class="effect-lily tm-post-link tm-pt-60">
+                            <div class="tm-post-link-inner">
+                                <img src="{{ blog.image.url }}" width="20px" class="img-fluid">
+                            </div>
+                            <span class="position-absolute tm-new-badge">New</span>
+                            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{blog.title}}</h2>
+                        </a>
+                        <p class="tm-pt-30">
+                            {{blog.description|striptags|truncatechars:40  }}
+                            <div class="d-flex justify-content-between">
+                                <span>By   --{{ blog.author }}--</span>
+                            </div>
+                            <div class="d-flex justify-content-between tm-pt-45">
+                                <small><span class="tm-color-primary">{{ blog.date|date:'M d Y'  }}</span></small>
+                            </div>
+                    </article>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="center">
+            <center>
+                <p ><img src="{% static 'img/search.png'%}" class="fpc" ></p>
+                <b><p class="ex2">Oops...No Nothing Found!</p></b>
+                <p class="mb-5 tm-line-height-short">
+                    <b>Please Try Somthing else.</b>
+                </p>
+                
+            </center>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="row tm-row tm-mt-100 tm-mb-75">
+        
+        <div class="tm-prev-next-wrapper">
+            {% if blogs.has_previous %}
+                <a href="{% url 'blog:all_blogs' %}?page={{blogs.previous_page_number}}" class="mb-2 tm-btn tm-btn-primary tm-prev-next ">Prev</a>
+                {% else %}
+                <a  class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-2">Prev</a>
+            {% endif %}
+            {% if blogs.has_next %}
+                <a href="{% url 'blog:all_blogs'%}?page={{blogs.next_page_number}}" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                {% else %}
+                <a  class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-2">Next</a>
+            {% endif %}
+        </div>
+        {% if blogs.has_other_pages %}
+        <div class="tm-paging-wrapper">
+            <span class="d-inline-block mr-3">Page</span>
+            <nav class="tm-paging-nav d-inline-block">
+                <ul>
+                    <li class="tm-paging-item active">
+                        <a href="{% url 'blog:all_blogs'%}?page=1" class="mb-2 tm-btn tm-paging-link">1</a>
+                    </li>
+                    <li class="tm-paging-item active" >
+                        <a href="{% url 'blog:all_blogs'%}?page=2" class="mb-2 tm-btn tm-paging-link">2</a>
+                    </li>
+                    <li class="tm-paging-item active">
+                        <a href="{% url 'blog:all_blogs'%}?page=3" class="mb-2 tm-btn tm-paging-link">3</a>
+                    </li>
+                    <li class="tm-paging-item active">
+                        <a href="{% url 'blog:all_blogs'%}?page=4" class="mb-2 tm-btn tm-paging-link">4</a>
+                    </li>
+                    <li class="tm-paging-item active">
+                        <a href="{% url 'blog:all_blogs'%}?page=5" class="mb-2 tm-btn tm-paging-link">5</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% endif %} 
+    </div>
+{%endblock%}

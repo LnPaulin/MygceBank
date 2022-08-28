@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+{%load static%}
+{%block title%}
+SignUp |
+{%endblock%}
+{%block menu %}
+        <li class="tm-nav-item "><a href="{% url 'home'%}" class="tm-nav-link">
+            <i class="fas fa-home"></i>
+            Home
+        </a></li>
+
+        <li class="tm-nav-item active"><a href="{%url 'blog:all_blogs'%}" class="tm-nav-link">
+            <i class="fas fa-users"></i>
+            Blog
+        </a></li>
+        
+        <li class="tm-nav-item"><a href="{% static 'portfolio/Resume_Tchio_Fonkwa_Paulin.pdf' %}" class="tm-nav-link">
+            <i class="fas fa-pen"></i>
+            Resume
+        </a></li>
+
+{%endblock%}
+<h1>hello singup here</h1>
+<h2>{{error}}</h2>
+<form method="POST">
+{% csrf_token %} 
+{{ form.as_p }}
+<button type="submit">signin</button>
+</form>
+{%block content %}
+{% endblock %}
