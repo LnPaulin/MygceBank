@@ -2,60 +2,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-		<style>
-                p.ex1 {
-                font-size: 30px;
-                }
-                p.ex2 {
-                font-size: 40px;
-                }
-                img.rnd {
-                border-radius: 50%;
-                border: 6px solid #09b6b6;
-                }
-                img.rndp{
-                    
-                    border: 7px solid #09b6b6;
-                }
-                img.fp {
-                    width: 100%;
-                    }
-                img.fpc {
-                        width: 55%;
-                        }
-                input{
-                
-                    height: 45px;
-                    width: 50%;
-                    border-color: #34F0E8;
-                    border-radius: 15px;
-                
-                }
-                textarea{
-                    height: 250px;
-                    width: 50%;
-                    border-color: #34F0E8;
-                    border-radius: 15px;
-                }
-                div.center {
-                    width: 700px;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    }
-                   
-                    #freepik_stories-research-paper{
-                        width: 50%;
-                    }
-                    #freepik_stories-search-engines{
-                        width: 50%;
-                    }
-                
-		</style>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%}{%endblock%} FonkwaPaulin</title>
+    <title>{%block title%}{%endblock%} MyGCEbank</title>
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png'%}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
@@ -71,7 +21,7 @@
             </button>
             <div class="tm-site-header">
                 <div class="mb-3 mx-auto "> 
-                       <a href="{% url 'home'%}"><img class="fp" src="{% static 'img/logo.png'%}"></a>
+                       <a class="logo" href="{% url 'home'%}">Mygce<span class="logo">Bank</span></a>
                 </div>
             </div>
             <nav class="tm-nav" id="tm-nav">

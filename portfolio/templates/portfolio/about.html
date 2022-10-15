@@ -3,7 +3,9 @@
 {%block title%}
 About |
 {%endblock%}
-{%block menu %}
+
+{% block menu %}
+
         <li class="tm-nav-item "><a href="{% url 'home'%}" class="tm-nav-link">
             <i class="fas fa-home"></i>
             Home
@@ -11,7 +13,7 @@ About |
 
         <li class="tm-nav-item "><a href="{% url 'blog:all_blogs'%}" class="tm-nav-link">
             <i class="fas fa-users"></i>
-            Blog
+            PastQtns
         </a></li>
         
         <li class="tm-nav-item active"><a href="{% url 'about' %}" class="tm-nav-link">
@@ -27,5 +29,12 @@ About |
 {%endblock%}
 
 {%block content %}
-                
+<center>
+    <figure>
+    <img class="member" src="{% static 'img/tchio.jpg'%}">
+    <em><figcaption>Tchio Fonkwa, PLET</figcaption></em>
+    </figure>
+
+    <p><b>We are a team of IT Experts and Teachers around the Country dedicated to making our local Educational Resources easily accessible to our students around the National Territory. We offer a lots of services around this ever changing IT World. You can find our Contact Information on the</b> <br><a class="about" href="{%url 'contact'%}">CONTACT PAGE</a>.</p>
+</center>    
 {% endblock %}
