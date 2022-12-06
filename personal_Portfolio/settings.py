@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&ls@&ue6+b+-i))-%rfcr!)w5d8$jmx%wmekmkqs@of$sv#11l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'personal_Portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mygcebank',
+        'USER': 'mygcebankuser',
+        'PASSWORD': 'paulin20',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -130,3 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['https://*.mygcebank.com','https://*.127.0.0.1']
