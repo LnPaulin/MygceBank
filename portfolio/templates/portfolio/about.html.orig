@@ -1,0 +1,44 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{%block title%}
+About |
+{%endblock%}
+
+{% block menu %}
+
+        <li class="tm-nav-item "><a href="{% url 'home'%}" class="tm-nav-link">
+            <i class="fas fa-home"></i>
+            Home
+        </a></li>
+
+        <li class="tm-nav-item "><a href="{% url 'blog:all_blogs'%}" class="tm-nav-link">
+            <i class="fas fa-users"></i>
+            PastQtns
+        </a></li>
+        
+        <li class="tm-nav-item active"><a href="{% url 'about' %}" class="tm-nav-link">
+            <i class="fas fa-pen"></i>
+            About
+        </a></li>
+
+        <li class="tm-nav-item "><a href="{% url 'contact'%}" class="tm-nav-link">
+            <i class="fas fa-comments"></i>
+            Contact
+        </a></li>
+
+{%endblock%}
+
+{%block content %}
+<center>
+    <figure>
+    <img class="member" src="{% static 'img/tchio.jpg'%}">
+    <em><figcaption>Tchio Fonkwa, PLET</figcaption></em>
+    </figure>
+
+<<<<<<< HEAD
+    <p><b>We are a team of IT enthusiasts and Instructors around the Country dedicated to making our local Educational Resources easily accessible to our students around the National Territory. We offer a lots of services around this ever changing IT World. You can find our Contact Information on the</b> <br><a class="about" href="{%url 'contact'%}">CONTACT PAGE</a>.</p>
+=======
+    <p><b>We are a team of IT enthusiast and Teachers around the Country dedicated to making our local Educational Resources easily accessible to our students around the National Territory. We offer a lots of services around this ever changing IT World. You can find our Contact Information on the</b> <br><a class="about" href="{%url 'contact'%}">CONTACT PAGE</a>.</p>
+>>>>>>> 1932db279b7d75b1add899cf64b90b5a60d3ddef
+</center>    
+{% endblock %}
