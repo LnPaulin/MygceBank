@@ -47,13 +47,15 @@
         {% if project.url %}
         <a target="_blank" href="{{ project.url }}">
           <img src="{{ project.image.url }}" class="img-fluid mb-2">
-        </a>
+        
         {% else %}
 
         <img src="{{ project.image.url }}" class="img-fluid mb-2">
         {% endif %}
         <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{project.title}}</h2>
+	</a>
         <p>{{ project.description }}</p>
+	
 
       </div>
     {% endfor %}
