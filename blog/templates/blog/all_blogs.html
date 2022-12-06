@@ -39,7 +39,7 @@
 
 {%block content %}
     <center>
-        <b><p class="ex2">CATEGORIES</p></b>
+        <b><p class="ex2">PAPERS</p></b>
         <a class="mb-2 tm-btn tm-btn-primary tm-prev-next" href="{% url 'blog:all_blogs' %}">All</a>
         {% for category in categories %}
             <a class="mb-2 tm-btn tm-btn-primary tm-prev-next" href="{% url 'blog:all_blogs' %}?category={{category.name}}">{{category.name}}</a>
