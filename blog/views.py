@@ -13,7 +13,7 @@ def all_blogs(request, category_id=None):
     else:
         blogs = Blog.objects.filter(category__name=category)
 
-    P = Paginator(blogs,10)
+    P = Paginator(blogs,12)
     page_num = request.GET.get('page',1)
     try:
         page = P.page(page_num)
