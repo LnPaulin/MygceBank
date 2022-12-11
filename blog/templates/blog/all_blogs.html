@@ -49,15 +49,15 @@
     
         {% if blogs %}
             {% for blog in blogs %}
-            <ul>
+
                         <a href="{% url 'blog:detail' blog.id %}" >
-                <li>            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{blog.title}}</h2> </li>
+                            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{blog.title}}</h2>
                         </a>
                         <p class="tm-pt-30">
                             {{blog.description|striptags|truncatechars:200  }} <br>
+
                             <small><span class="tm-color-primary">By   --{{ blog.author }}-- Posted on --{{ blog.date|date:'M d Y'  }}</span></small>
                         </p>
-            </ul>
             {% endfor %}
         {% else %}
         <div class="center">
