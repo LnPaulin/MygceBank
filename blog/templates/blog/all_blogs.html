@@ -46,29 +46,18 @@
         {% endfor %}
     </center>
     <br><br>
-    <div class="row media box">
+    
         {% if blogs %}
             {% for blog in blogs %}
-                <div class="col-lg-4 col-md-6">
-                    <article class="col-12 col-md-6 tm-post">
-                        <hr class="tm-hr-primary">
-                        <a href="{% url 'blog:detail' blog.id %}" class="effect-lily tm-post-link tm-pt-60">
-                            <div class="tm-post-link-inner">
-                                <img src="{{ blog.image.url }}" class="img-fluid">
-                            </div>
-                            <span class="position-absolute tm-new-badge">New</span>
-                            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{blog.title}}</h2>
+            <ul>
+                        <a href="{% url 'blog:detail' blog.id %}" >
+                <li>            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{blog.title}}</h2> </li>
                         </a>
                         <p class="tm-pt-30">
-                            {{blog.description|striptags|truncatechars:40  }}
-                            <div class="d-flex justify-content-between">
-                                <span>By   --{{ blog.author }}--</span>
-                            </div>
-                            <div class="d-flex justify-content-between tm-pt-45">
-                                <small><span class="tm-color-primary">{{ blog.date|date:'M d Y'  }}</span></small>
-                            </div>
-                    </article>
-                </div>
+                            {{blog.description|striptags|truncatechars:200  }} <br>
+                            <small><span class="tm-color-primary">By   --{{ blog.author }}-- Posted on --{{ blog.date|date:'M d Y'  }}</span></small>
+                        </p>
+            </ul>
             {% endfor %}
         {% else %}
         <div class="center">
@@ -82,7 +71,7 @@
             </center>
         </div>
         {% endif %}
-    </div>
+    
 
     <div class="row tm-row tm-mt-100 tm-mb-75">
         

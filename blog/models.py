@@ -20,9 +20,9 @@ class Blog(models.Model):
     description = models.TextField()
     date = models.DateField()
     author = models.CharField(max_length=50)
-    image = models.ImageField(blank=False, upload_to='portfolio/images/')
-    url = models.URLField(blank=True)
-    gform = models.TextField(blank=True)
+    #image = models.ImageField(blank=False, upload_to='portfolio/images/')
+    #url = models.URLField(blank=True)
+    ifram = models.TextField(blank=True)
 
 class Comment(models.Model):
     blog = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
